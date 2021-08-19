@@ -14,3 +14,6 @@ console.log(b)
 
 console.log('\u2706')
 
+console.log(0xff ^ 33)
+console.log({} + 'b' > {} + 'a')
+
