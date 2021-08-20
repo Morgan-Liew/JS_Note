@@ -52,5 +52,43 @@
             </body>
          </html>
 
-## 原生Ajax => 01_A::
-jax_native
+## 原生Ajax => 01_Ajax_native
+
+## Ajax-jQuery => 02_Ajax_jQuery
+
+### jQuery中的Ajax
+    1.get请求
+      $.get(url,[data],[callback],[type])
+         url:请求的URL地址
+         data:请求携带的参数 
+         callback:载入成功时回调函数
+         type:设置返回内容格式，xml，html，script，json,text,_default
+    
+    2.post请求
+      $.post(url,[data],[callback],[type])
+         url:请求的URL地址
+         data:请求携带的参数
+         callback:载入成功时的回调函数
+         type:设置返回内容格式，xml，html，script，json,text,_default
+    
+    3.通用Ajax
+      $.ajax({
+        //    url
+            url:'http://127.0.0.1:8000/jquery-server',
+        //    参数
+            data:{author:"morgan",editor:'webStorm'},
+        //    请求类型
+            type:'GET',
+        //    响应体结果
+            dataType:'json',
+        //    成功的回调
+            success:function(data){
+                console.log(data);
+            }
+        //    超时时间
+            timeout:2000,
+        //    失败的回调
+            error:function(){
+                console.log('error');
+            }
+      })
