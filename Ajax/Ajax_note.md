@@ -73,7 +73,7 @@
     
     3.通用Ajax
       $.ajax({
-        //    url
+        //    :url
             url:'http://127.0.0.1:8000/jquery-server',
         //    参数
             data:{author:"morgan",editor:'webStorm'},
@@ -92,3 +92,5 @@
                 console.log('error');
             }
       })
+
+## Ajax-axios => 03_Ajax_axios
