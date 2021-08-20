@@ -94,4 +94,5 @@
       })
 
 ## Ajax-axios => 03_Ajax_axios
-：
+
+## Ajax-fetch => 04_Ajax_fetch
