@@ -96,3 +96,22 @@
 ## Ajax-axios => 03_Ajax_axios
 
 ## Ajax-fetch => 04_Ajax_fetch
+
+## 跨域
+   
+### 同源策略 (same - origin policy)
+    是浏览器的一种安全策略，最早由Netscape公司提出
+
+    同源：协议、域名、端口号 必须完全相同
+    违背同源策略就是跨域
+
+解决跨域
+
+      1.JSONP 
+         (JSON with Padding)，是一个非官方的跨域解决方案，只支持get请求
+      2.JSONP如何工作
+         在网页有一些标签天生具有跨域能力
+         JSONP就是利用script标签的跨域能力来发送请求
+      3.JSONP使用
+         1.动态的创建一个script标签
+         2.设置script的src，设置回调函数
