@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01 jQuery Test</title>
+</head>
+<body>
+
+    用户名：<input type="text" id="username" placeholder="输入姓名">
+    <button id="btn">确定</button>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script>
+        // 绑定文档加载完成的监听
+        $(function() {
+            $('#btn').click(function(){  // 绑定监听
+                let username = $('#username').val();
+                alert(username)
+            })
+        })
+
+        console.log($,typeof $)
+    </script>
+
+</body>
+</html>
