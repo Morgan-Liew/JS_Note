@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>01 jQuery Test</title>
+    <title>02 jQuery 核心函数及对象</title>
 </head>
 <body>
 <img/><img/><img/><img/><img/>
@@ -15,6 +15,30 @@
 
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
 <script>
+
+
+    // jQuery 核心函数
+    /*
+    * 1.jQuery([selector,[context]]) => $()
+    *   该函数接收一个包含CSS选择器的字符串，用这个字符串去匹配一组元素
+    *   selector 用来查找字符串
+    *   context  作为待查找的DOM元素集、文档或jQuery对象
+    *
+    * 2.jQuery(html,[ownerDocument])
+    *   根据提供的原始HTML标记字符串，动态创建由jQuery对象包装的DOM元素，同时设置一系列属性、事件等
+    *   html  用于动态创建DOM元素的HTML标记字符串
+    *   ownerDocument 创建DOM元素所在的文档
+    *
+    * 3.jQuery(callback)
+    *   $(document).ready()的简写，允许绑定一个在DOM文档载入完成后执行的函数
+    *
+    * 4.jQuery.readyException(error)
+    *   处理包裹在jQuery()中函数同步抛出的错误
+    * */
+    //jQuery(callback)
+    /*$(function () {
+        // 文档就绪
+    })*/
 
     // jQuery 核心对象
     /* 1.each(callback)  以每一个匹配的元素作为上下文来执行一个函数

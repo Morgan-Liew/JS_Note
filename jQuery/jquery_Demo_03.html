@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03 jQuery 选择器</title>
+</head>
+<body>
+
+<form>
+    <label>Name:</label>
+    <input name="name"/>
+    <fieldset>
+        <label>Newsletter:</label>
+        <input name="newsletter"/>
+    </fieldset>
+</form>
+<input name="none"/>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+<script>
+
+    // jQuery 选择器
+    /* 用来匹配文档中的元素
+    *
+    *  基本选择器
+    *   #id
+    *   element
+    *   .class
+    *   *
+    *   s1,s2,...sn
+    *   s1s2...sn
+    *
+    *  层级选择器
+    *  后代选择器 ancestor descendant
+    *  子元素选择器 parent > child
+    *  prev + next
+    *  prev ~ siblings
+    *
+    *  过滤选择器  在原有选择器匹配的元素中进一步进行过滤
+    *  :first
+    *  :not(selector)
+    *  :even
+    *  :odd
+    *  :eq(index)
+    *  :gt(index) :it(index)
+    *  :lang
+    *  :last
+    *  :header
+    *  :animated
+    *  :focus
+    *  :root
+    *  :target
+    *
+    *  内容选择器
+    *  :contains(text)
+    *  :empty
+    *  :has(selector)
+    *  :parent
+    *
+    *  可见性选择
+    *  :hidden
+    *  :visible
+    *
+    *  属性选择器
+    *  [attribute]
+    *  [attribute = value]
+    *  [attribute != value]
+    *  [attribute ^= value]
+    *  [attribute $= value]
+    *  [attribute *= value]
+    *  [s1][s2]...[sn]
+    *
+    *  子元素选择器
+    *  :first-child
+    *  :first-of-type
+    *  :last-child
+    *  :last-of-type
+    *  :nth-child
+    *  :nth-last-child
+    *  :nth-last-of-type
+    *  :nth-of-type
+    *  :only-child
+    *  :only-of-type
+    *
+    *  表单选择器
+    *  :input
+    *  :text
+    *  :password
+    *  :radio
+    *  :checkbox
+    *  :submit
+    *  :image
+    *  :reset
+    *  :button
+    *  :file
+    *
+    *  表单对象属性
+    *  :enabled
+    *  :disabled
+    *  :checked
+    *  :selected
+    *
+    *  其他
+    *  $(this)
+    *  $.escapeSelector(selector)
+    * */
+    $('*').css('background-color','#2486b9')
+
+</script>
+</body>
+</html>
