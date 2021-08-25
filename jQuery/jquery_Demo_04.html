@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery 工具</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+</head>
+<body>
+
+<div>
+    <ul>
+        <li>1</li>
+    </ul>
+</div>
+<div>First</div>
+<div>Second</div>
+<div>Third</div>
+<div>Fourth</div>
+<div></div>
+<div></div>
+<div></div>
+<button id="btn" type="button">show Browser message</button>
+<p></p>
+
+
+<script>
+    // jQuery 工具
+    /*
+    * 浏览器即特性检测
+    * jQuery.browser.version
+    *
+    * 数组和对象操作
+    * jQuery.each(object, [callback]) 通用遍历方法，可用于遍历对象和数组
+    *
+    * jQuery.extend([deep], target, object1, [objectN]) 用一个或多个其他对象来扩展一个对象，返回被扩展的对象
+    *
+    * jQuery.grep(array, callback, [invert]) 使用过滤函数过滤数组元素
+    *
+    * jQuery.when(deferreds) 提供一种方法来执行一个或多个对象的回调函数，延迟对象通常表示异步事件
+    *
+    * jQuery.makeArray(obj) 将类数组对象转换为数组对象
+    *
+    * jQuery.map(arr|obj,callback) 将一个数组中的元素转换到另一个数组中
+    *
+    * jQuery.inArray(value,array,[fromIndex]) 确定第一个参数在数组中的位置，从0开始计数(如果没有找到则返回 -1 )
+    *
+    * jQuery.toArray() 把jQuery集合中所有DOM元素恢复成一个数组
+    *
+    * jQuery.merge(first,second) 合并两个数组 返回的结果会修改第一个数组的内容
+    *
+    * jQuery.uniqueSort(array) 通过搜索的数组对象，排序数组，并移除任何重复的节点
+    *
+    * jQuery.parseXML(data) 解析一个字符串到一个XML文件q
+    *
+    * 测试操作
+    * jQuery.contains(container,contained) 一个DOM节点是否包含另一个DOM节点
+    *
+    * jQuery.type(obj) 检测obj的数据类型
+    *
+    * jQuery.isEmptyObject(obj) 测试对象是否是空对象（不包含任何属性）
+    *
+    * jQuery.isPlainObject(obj) 测试对象是否是纯粹的对象（通过 "{}" 或者 "new Object" 创建的）
+    *
+    * jQuery.isNumeric(value) 确定它的参数是否是一个数字。
+    *
+    * 字符串操作
+    * jQuery.trim(str) 去掉字符串其实和结尾的空格
+    *
+    * 函数操作
+    * jQuery.noop  一个空函数
+    * jQuery.proxy(function,context) 返回一个新函数，并且这个函数始终保持了特定的作用域
+    *
+    * URL
+    * jQuery.param(obj,[traditional]) 将表单元素数组或者对象序列化。是.serialize()的核心方法。
+    *
+    * 插件编写
+    * jQuery.error(message) 接受一个字符串，并且直接抛出一个包含这个字符串的异常
+    * $.fn.jquery 代表 jQuery 版本号的字符串
+    * */
+    // $('#btn').click(function(){
+    // console.log($.browser.version);
+    // })
+    // $("p").html("The version number of the rendering engine your browser uses is: <span>" +
+    //     $.browser.version + "</span>");
+
+    // jQuery.contains(document.documentElement, document.body); // true
+    console.log($.contains(document.documentElement, document.body));
+    console.log($.contains($('nav'), $('p')));
+
+    // jQuery.type(obj)
+    console.log($.type(3));
+    console.log($.type(true));
+    console.log($.type('aaa'));
+
+    // jQuery.isEmptyObject(obj)
+    console.log($.isEmptyObject({})) // true
+
+    let ObjDemo = {
+        name: 'Morgan',
+        sex: 'man',
+        email: '  morgan_liew@qq.com  '
+    }
+    // jQuery.isPlainObject(obj)
+    console.log($.isPlainObject(ObjDemo));
+    console.log($.isPlainObject('123'));
+
+    // jQuery.isNumeric(value)
+    console.log($.isNumeric(15));
+    console.log($.isNumeric('ABC'));
+
+    // jQuery.trim(str)
+    let str = ' a b c d e '
+    $('p').html($.trim(str));
+
+    // $("#test").click( jQuery.proxy( obj, "test" ) );
+
+    // jQuery.param(obj,[traditional])
+    $('p').text($.param(ObjDemo, true))
+
+    // jQuery.each(object,[callback])
+    $.each(ObjDemo, function (key, value) {
+        $('p').html('key: ' + key + ' ' + 'value: ' + value)
+    })
+
+    // jQuery.extend([deep], target, object1, [objectN])
+    let addObj = {editor: 'vim'}
+    $.extend(ObjDemo, addObj);
+    $.each(ObjDemo, function (key, value) {
+        $('p').html('key: ' + key + ' ' + 'value: ' + value)
+    })
+
+    // jQuery.grep(array, callback, [invert])
+    let arr = $.grep([0, 1, 2], function (n, i) {
+        return n > 0;
+    });
+    console.log(arr)
+
+    // jQuery.when(deferreds)
+    $.when({testing: 123}).done(
+        function (x) {
+            alert(x.testing);
+        } /* alerts "123" */
+    );
+
+    // jQuery.makeArray(obj)
+    let arr2 = jQuery.makeArray(document.getElementsByTagName("div"));
+    arr2.reverse();
+    console.log(arr2)
+
+    // jQuery.map(arr|obj,callback)
+    let arr3 = $.map([0, 1, 2], function (arr) {
+        return arr * 2;
+    })
+    console.log(arr3)
+
+    // jQuery.inArray(value,array,[fromIndex])
+    console.log($.inArray(2, arr3))
+
+    // jQuery.toArray()
+    alert($('div').toArray())
+
+    // jQuery.merge(first,second)
+    console.log($.merge(arr, arr3))
+
+    // jQuery.uniqueSort(array)
+    $.uniqueSort(document.getElementsByTagName("div"));
+
+    // jQuery.parseXML(data)
+</script>
+
+</body>
+</html>

@@ -1,4 +1,10 @@
-let array = [,2,1,,5,,8];
-let array2 = array.map( (i) => ++i );
-console.log(array2);
+function numberSort(a,b) {
+    return b - a;
+}
+
+let arr = new Array('23','6','12','35','76');
+console.log(arr.push(numberSort));
+console.log(arr.push(numberSort));
+console.log(arr.push(numberSort));
+
 

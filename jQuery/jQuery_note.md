@@ -43,3 +43,8 @@ jQuery核心对象
 
 执行jQuery函数返回的就是jQuery对象
 使用：$obj.xxx()
+
+### jQuery 选择器
+    record => jQuery/jquery_Demo_03.html
+### jQuery 工具
+    record => jQuery/jquery_Demo_04.html
