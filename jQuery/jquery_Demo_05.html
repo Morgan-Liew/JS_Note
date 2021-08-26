@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery 属性</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <style>
+        .bgStyle{
+            border:2px solid #2486b9;
+            padding:10px;
+            margin-top: 10px;
+        }
+
+        .fontStyle{
+            color:#f04b22;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <img src="./img/html5.png" alt="html5" />
+    <img src="./img/CSS3.png" alt="CSS3"/>
+    <img src="./img/JS.png" alt="JS" />
+    <p></p>
+</div>
+
+<div>
+    <input type="checkbox" checked />
+    <input type="checkbox" />
+    <p id="p2"></p>
+</div>
+
+<div>
+    <button id="btn">click</button>
+</div>
+
+<script>
+    // jQuery 属性
+    /*
+    *  1.属性
+    *  attr(name|properties|key,value|fn) 设置或返回被选元素的属性值
+    *
+    *  removeAttr(name) 从每一个匹配的元素中删除一个属性
+    *
+    *  prop(name|properties|key,value|fn) 获取在匹配的元素集中的第一个元素的属性值
+    *
+    *  removeProp(name) 用来删除由.prop()方法设置的属性集
+    *
+    *  2.CSS类
+    *  addClass(class|fn) 为每个匹配的元素添加指定的类名
+    *
+    *  removeClass([class|fn]) 从所有匹配的元素中删除全部或者指定的类
+    *
+    *  toggleClass(class|fn[,sw]) 如果存在（不存在）就删除（添加）一个类
+    *
+    *  3.HTML代码/文本/值
+    *  html([val|fn]) 取得第一个匹配元素的html内容
+    *
+    *  text([val|fn]) 取得所有匹配元素的内容
+    *
+    *  val([val|fn|arr]) 获得匹配元素的当前值
+    *
+    * */
+
+    // attr(name|properties|key,value|fn)
+    $('p').text($('img').attr('src'));
+
+    // removeAttr(name)
+    $('img').removeAttr('alt');
+
+    // prop(name|properties|key,value|fn)
+    // $('#p2').html($("input[type='checkbox']").prop("checked"));
+
+    // removeProp(name)
+    $('input[type=\'checkbox\']').removeProp('checked')
+
+    // addClass(class|fn)
+    $('div').addClass('bgStyle');
+
+    // removeClass([class|fn])
+    $('div').addClass('fontStyle');
+    $('div').removeClass('fontStyle');
+
+    // toggleClass(class|fn[,sw])
+    $('#btn').click(() => {
+        $('div').toggleClass('fontStyle');
+    })
+
+    $('#p2').html($('input').val());
+
+
+</script>
+
+</body>
+</html>
