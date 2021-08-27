@@ -49,5 +49,8 @@ jQuery核心对象
 ### jQuery 工具
     record => jQuery/jquery_Demo_04.html
 
-### 属性
+### jQuery 属性
     record => jQuery/jquery_Demo_05.html
+
+### jQuery CSS 
+    record => jQuery/jquery_Demo_06.html

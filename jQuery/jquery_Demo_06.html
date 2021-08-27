@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery CSS</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <style>
+        h1,h2,h3,h4,h5,h6,p,span{
+            color:#fffef8
+        }
+        header,div,footer,ul{
+            margin-top: 8px;
+            padding: 5px;
+            border:2px solid #fffef9;
+            background-color: #1661ab;
+            box-shadow: 0 0 5px #5e616d;
+        }
+
+        ul{
+            list-style: none;
+            color:#fffef8;
+        }
+    </style>
+
+</head>
+<body>
+<header>
+    <h1>header</h1>
+    <p></p>
+    <p class="p2"></p>
+    <p class="p3"></p>
+    <p class="p4"></p>
+</header>
+<div>
+    <h2>content</h2>
+    <p>Hello,Morgan!</p>
+    <div id="test">
+        <p></p>
+    </div>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<footer>
+    <h4>footer</h4>
+</footer>
+
+<script>
+    // jQuery CSS
+    /* CSS
+    *  1.css(name|pro|[,val|fn]) 访问匹配元素的样式属性
+    *
+    *  2.jQuery.cssHooks 用于覆盖设置或获取特定 CSS 属性时的方法，目的是为了标准化 CSS 属性名或创建自定义属性
+    *
+    *  位置
+    *  offset([coordinates]) 获取匹配元素在当前视口的相对偏移
+    *  position()         获取匹配元素相对父元素的偏移
+    *  scrollTop([val])   获取匹配元素相对滚动条顶部的偏移
+    *  scrollLeft([val])  获取匹配元素相对滚动条左侧的偏移
+    *
+    *  尺寸
+    *  height([val|fn])   取得匹配元素当前计算的高度值（px）
+    *  width([val|fn])    取得第一个匹配元素当前计算的宽度值（px）
+    *  innerHeight()      获取第一个匹配元素内部区域高度（包括补白、不包括边框）
+    *  innerWidth()       获取第一个匹配元素内部区域宽度（包括补白、不包括边框）
+    *  outerHeight([options])  获取第一个匹配元素外部高度（默认包括补白和边框）
+    *  outerWidth([options])   获取第一个匹配元素外部宽度（默认包括补白和边框）
+    * */
+
+    // css(name|pro|[,val|fn])
+    $('#test p').html($('header h1').css('color'));
+    $('#test').css({'background-color':'#525288','color':'#c21f30'});
+    $('h2').css('color','#fed71a');
+
+    // offset([coordinates])
+    let offset = $('h1').offset();
+    $('header p').html(`left: ` +  offset.left + ' ; top: ' + offset.top)
+
+    // position()
+    let position = $('h1').position();
+    $('.p2').html(`left: ` +  position.left + ' ; top: ' + position.top)
+
+    // scrollTop([val])
+    $('.p3').html('scrollTop: ' + $('h1').scrollTop());
+    $('.p3').scrollTop(200);
+
+    // scrollLeft([val])
+    $('.p4').html('scrollLeft: ' + $('h1').scrollLeft());
+    $('.p4').scrollLeft(300);
+
+    // height([val|fn])  width([val|fn])  innerHeight()  innerWidth() outerHeight([options]) outerWidth([options])
+    $('ul li:nth-child(1)').html('test.height: ' + $('#test').height() + 'px')
+    $('ul li:nth-child(2)').html('test.width: ' + $('#test').width() + 'px')
+    $('ul li:nth-child(3)').html('test.innerHeight: ' + $('#test').innerHeight() + 'px')
+    $('ul li:nth-child(4)').html('test.innerWidth: ' + $('#test').innerWidth() + 'px')
+    $('ul li:nth-child(5)').html('test.outerHeight: ' + $('#test').outerHeight() + 'px')
+    $('ul li:nth-child(6)').html('test.outerWidth: ' + $('#test').outerWidth() + 'px')
+
+</script>
+
+
+</body>
+</html>
