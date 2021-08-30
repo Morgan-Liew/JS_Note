@@ -1,10 +1,12 @@
-function numberSort(a,b) {
-    return b - a;
-}
+// // let i = 1 + {valueOf(){return 9;}}
+// let i = parseInt('0xA');
 
-let arr = new Array('23','6','12','35','76');
-console.log(arr.push(numberSort));
-console.log(arr.push(numberSort));
-console.log(arr.push(numberSort));
+let i = 5;
+function a(i){
+    return i = i * 2
+}
+i = a(i);
+
+console.log(i)
 
 
