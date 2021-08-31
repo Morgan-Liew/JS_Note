@@ -55,7 +55,7 @@ jQuery核心对象
         属性选择器
         子元素选择器
         表单选择器
-        表单对象属性
+        表单对象属性q
 
 ### jQuery 工具
     record => jQuery/jquery_Demo_04.html
@@ -72,3 +72,7 @@ jQuery核心对象
 ### jQuery 效果
     record => jQuery/jquery_Demo_07.html
     含：基本、滑动、淡入淡出、自定义和设置
+
+### jQuery 文档处理
+    record => jQuery/jquery_Demo_08.html
+    含：内部插入、外部插入、包裹、替换和复制

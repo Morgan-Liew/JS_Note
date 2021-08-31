@@ -8,5 +8,6 @@ function a(i){
 i = a(i);
 
 console.log(i)
+console.log(null == undefined)
 
 
