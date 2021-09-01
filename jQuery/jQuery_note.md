@@ -45,34 +45,43 @@ jQuery核心对象
 使用：$obj.xxx()
 
 ### jQuery 选择器
-    record => jQuery/jquery_Demo_03.html
-    含：
-        基本选择器
-        层级选择器
-        过滤选择器
-        内容选择器
-        可见性选择
-        属性选择器
-        子元素选择器
-        表单选择器
-        表单对象属性q
+> [record => jQuery/jquery_Demo_03.html](jquery_Demo_03.html)  
+   含：     
+>         基本选择器   
+          层级选择器   
+          过滤选择器   
+          内容选择器      
+          可见性选择   
+          属性选择器   
+          子元素选择器   
+          表单选择器  
+          表单对象属性
 
 ### jQuery 工具
-    record => jQuery/jquery_Demo_04.html
-    含：浏览器及特性检测、数组和对象操作、测试操作、字符串和函数操作、URL和插件编写
+> [record => jQuery/jquery_Demo_04.html](jquery_Demo_04.html)   
+> 含：  
+>    浏览器及特性检测   
+>    数组和对象操作  
+>    测试操作   
+>    字符串和函数操作  
+>    URL和插件编写
 
 ### jQuery 属性
-    record => jQuery/jquery_Demo_05.html
+> [record => jQuery/jquery_Demo_05.html](jquery_Demo_05.html)  
     含：属性、CSS类和HTML 代码/文本/值
 
 ### jQuery CSS 
-    record => jQuery/jquery_Demo_06.html
+> [record => jQuery/jquery_Demo_06.html](jquery_Demo_06.html)  
     含：CSS、位置和尺寸
 
 ### jQuery 效果
-    record => jQuery/jquery_Demo_07.html
+> [record => jQuery/jquery_Demo_07.html](jquery_Demo_07.html)   
     含：基本、滑动、淡入淡出、自定义和设置
 
 ### jQuery 文档处理
-    record => jQuery/jquery_Demo_08.html
-    含：内部插入、外部插入、包裹、替换和复制
+> [record => jQuery/jquery_Demo_08.html](jquery_Demo_08.html)  
+含：内部插入、外部插入、包裹、替换和复制
+
+### jQuery 事件对象
+> [record => jQuery/jquery_Demo_09.html](jquery_Demo_09.html)  
+> 含：event.data、event.target ...

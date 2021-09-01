@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery 事件对象</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <style>
+        body{
+            background-color:#baccd9
+        }
+
+        h1, h2, h3, h4, h5, h6, p, span,i {
+            color: #fffef8
+        }
+
+        header, div, footer, ul {
+            margin-top: 8px;
+            padding: 20px;
+            border: 2px solid #fffef9;
+            background-color: #1661ab;
+            box-shadow: 0 0 5px #5e616d;
+            color: #fffef8;
+        }
+
+        ul {
+            margin-top: 5px;
+            border-radius: 15px;
+            list-style: none;
+            color: #fffef8;
+            background-color: #806d9e
+        }
+
+        button{
+            border:2px solid #fffef8;
+            color:#fffef8;
+            background-color: #1781b5;
+            font-weight: bolder;
+            padding:10px;
+            border-radius: 25px;
+            box-shadow: 0 0 5px #5e7987;
+        }
+    </style>
+
+</head>
+<body>
+
+<div>
+    <h3>event.currentTarget</h3>
+    <a href="aaa">12345</a>
+    <a href="bbb">12345</a>
+    <a href="ccc">12345</a>
+</div>
+
+<div class="box">
+    <button>click</button>
+    <p>1111</p>
+</div>
+
+<div >
+    <h3 id="log"></h3>
+    <p id="time"></p>
+</div>
+<div id="log2"></div>
+
+<input id="whichkey" value="type something">
+<div id="log3"></div>
+
+<script>
+
+    // jQuery 事件对象
+    /*
+    *  event.currentTarget 在事件冒泡阶段中的当前DOM元素
+    *  event.data 当前执行的处理器被绑定的时候，包含可选的数据传递给jQuery.fn.bind
+    *  event.delegateTarget 当currently-called的jQuery事件处理程序附加元素
+    *  event.isDefaultPrevented() 根据事件对象中是否调用过 event.preventDefault() 方法来返回一个布尔值
+    *  event.isImmediatePropagationStopped() 根据事件对象中是否调用过 event.stopImmediatePropagation() 方法来返回一个布尔值
+    *  event.isPropagationStopped() 根据事件对象中是否调用过 event.stopPropagation() 方法来返回一个布尔值
+    *  event.namespace 当事件被触发时此属性包含指定的命名空间
+    *  event.pageX  鼠标相对于文档的左边缘的位置
+    *  event.pageY  鼠标相对于文档的顶部边缘的位置
+    *  event.preventDefault() 阻止默认事件行为的触发
+    *  event.relatedTarget 在事件中涉及的其它任何DOM元素 对于 mouseout 事件，它指向被进入的元素；对于 mousein 事件，它指向被离开的元素
+    *  event.result 这个属性包含了当前事件事件最后触发的那个处理函数的返回值，除非值是 undefined
+    *  event.stopImmediatePropagation() 阻止剩余的事件处理函数执行并且防止事件冒泡到DOM树上
+    *  event.stopPropagation() 防止事件冒泡到DOM树上，也就是不触发的任何前辈元素上的事件处理函数
+    *  event.target 最初触发事件的DOM元素
+    *  event.timeStamp 这个属性返回事件触发时距离1970年1月1日的毫秒数
+    *  event.type  事件类型
+    *  event.which 针对键盘和鼠标事件，这个属性能确定你到底按的是哪个键或按钮
+    * */
+
+    $('h3').click(function(event){
+        alert(event.currentTarget === this);
+        alert(event.type);
+    })
+
+    $('a').each(function(i){
+        $(this).bind('click',{index:i},function(e){
+            alert('my index is ' + e.data.index);
+        })
+    })
+
+    $('a').mouseout((event) =>{
+        alert(event.relatedTarget.nodeName);
+    })
+
+    $('.box').on("click","button",function(event){
+        $(event.delegateTarget).css("background-color","cyan");
+    })
+    /*$('button').click((event) =>{
+        alert(event.isDefaultPrevented());
+        event.preventDefault();
+        alert(event.isDefaultPrevented());
+    })*/
+    /*$('button').click((event) =>{
+        alert(event.isImmediatePropagationStopped());
+        event.stopImmediatePropagation();
+        alert(event.isImmediatePropagationStopped());
+    })*/
+    $('button').click((event) =>{
+        // alert(event.isPropagationStopped());
+        // event.stopPropagation();
+        // alert(event.isPropagationStopped());
+        $('p').text(event.result);
+    })
+
+    // $("p").bind("click", function(event) {
+    //     alert( event.namespace );
+    // });
+    $(document).bind("mousemove", function(event) {
+        $("#log").text("e.pageX = " + event.pageX + " " + "e.pageY = " + event.pageY)
+        $("#time").text(event.timeStamp);
+    })
+
+    $('body').click((event) => {
+        $('#log2').html("click: " + event.target.nodeName);
+    })
+
+    $('#whichkey').bind('keydown',function(e){
+        $('#log3').html(e.type + ': ' +  e.which );
+    });
+
+</script>
+
+</body>
+</html>
