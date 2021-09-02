@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery 回调函数</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <style>
+        body{
+            background-color:#baccd9
+        }
+
+        h1, h2, h3, h4, h5, h6, p, span,i {
+            color: #fffef8
+        }
+
+        header, div, footer, ul {
+            margin-top: 8px;
+            padding: 20px;
+            border: 2px solid #fffef9;
+            background-color: #1661ab;
+            box-shadow: 0 0 5px #5e616d;
+            color: #fffef8;
+        }
+
+        ul {
+            margin-top: 5px;
+            border-radius: 15px;
+            list-style: none;
+            color: #fffef8;
+            background-color: #806d9e
+        }
+
+        button{
+            border:2px solid #fffef8;
+            color:#fffef8;
+            background-color: #1781b5;
+            font-weight: bolder;
+            padding:10px;
+            border-radius: 25px;
+            box-shadow: 0 0 5px #5e7987;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+
+    // jQuery 回调函数
+    /*
+    *  callbacks.add(callbacks)  回调列表中添加一个回调或回调的集合
+    *  callbacks.disable()  禁用回调列表中的回调
+    *  callbacks.empty()  从列表中删除所有的回调
+    *  callbacks.fire(arguments) 禁用回调列表中的回调
+    *  callbacks.fired()  用给定的参数调用所有的回调
+    *  callbacks.fireWith([context][,args])  访问给定的上下文和参数列表中的所有回调
+    *  callbacks.has(callback)  确定是否提供的回调列表
+    *  callbacks.lock()  锁定在其当前状态的回调列表
+    *  callbacks.locked()  确定是否已被锁定的回调列表
+    *  callbacks.remove(callbacks)  删除回调或回调回调列表的集合
+    *  jQuery.callbacks(flags)  一个多用途的回调列表对象，提供了强大的的方式来管理回调函数列表
+    *
+    * */
+    let foo = function(val){
+        console.log('foo: ' + val);
+    }
+
+    let bar = function(val){
+        console.log('bar: ' + val);
+    }
+
+    let log = function(value1,value2){
+        console.log('Received: ' + value1 + ', ' + value2);
+    }
+
+    let callbacks = $.Callbacks();
+
+    callbacks.add(foo);
+    callbacks.fire('hello');
+    callbacks.add(bar);
+    callbacks.fire('morgan');
+    // callbacks.lock();
+    // console.log ( callbacks.locked() );
+    callbacks.remove( foo );
+    callbacks.add(log);
+    // callbacks.disable();
+    // callbacks.fire('footer');
+    // callbacks.empty();
+    console.log(callbacks.has('foo'));
+    console.log(callbacks.has('bar'));
+    console.log(callbacks.fired())
+    callbacks.fireWith( window, ['foo','bar']);
+
+
+</script>
+
+</body>
+</html>

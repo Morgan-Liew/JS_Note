@@ -1,13 +1,14 @@
-// // let i = 1 + {valueOf(){return 9;}}
-// let i = parseInt('0xA');
-
-let i = 5;
-function a(i){
-    return i = i * 2
-}
-i = a(i);
-
-console.log(i)
-console.log(null == undefined)
+var p1 = {
+    name:'小明',
+    age:'12',
+    action:function(where,doing){
+     console.log(this.age + '岁的'+this.name + '在' + where + doing);
+    }  
+  }
+  var p2 = {
+    name:'小红',
+    age:'15'
+  }
+  console.log(p1.action.call(p2,'操场上','运动'))
 
 
