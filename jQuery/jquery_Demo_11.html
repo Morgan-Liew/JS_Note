@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery 事件</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <style>
+
+        body{
+            background-color:#baccd9
+        }
+
+        h1, h2, h3, h4, h5, h6, p, span,i {
+            color: #fffef8
+        }
+
+        header, div, footer, ul {
+            margin-top: 8px;
+            padding: 20px;
+            border: 2px solid #fffef9;
+            background-color: #1661ab;
+            box-shadow: 0 0 5px #5e616d;
+            color: #fffef8;
+        }
+
+        ul {
+            margin-top: 5px;
+            border-radius: 15px;
+            list-style: none;
+            color: #fffef8;
+            background-color: #806d9e
+        }
+
+        button{
+            border:2px solid #fffef8;
+            color:#fffef8;
+            background-color: #1781b5;
+            font-weight: bolder;
+            padding:10px;
+            border-radius: 25px;
+            box-shadow: 0 0 5px #5e7987;
+        }
+
+        .hover{
+            color:red;
+        }
+
+    </style>
+</head>
+<body>
+
+<div>
+    <p>aaa <span>bbb</span></p>
+    <input type="text">
+
+</div>
+
+<script>
+
+    // jQuery 事件
+    /*
+    *  1.页面载入
+    *   ready(fn) 当DOM载入就绪可以查询及操纵时绑定一个要执行的函数 事件模块中最重要的一个函数，可以极大地提高web应用程序的响应速度
+    *
+    *  2.事件处理
+    *   on(events,[selector],[data],fn) 在选择元素上绑定一个或多个事件的事件处理函数
+    *   off(events,[selector],[fn])  在选择元素上移除一个或多个事件的事件处理函数
+    *   one(type,[data],fn) 为每一个匹配元素的特定事件（像click）绑定一个一次性的事件处理函数
+    *   trigger(type,[data])  在每一个匹配的元素上触发某类事件
+    *   triggerHandler(type, [data]) 这个特别的方法将会触发指定的事件类型上所有绑定的处理函数。但不会执行浏览器默认动作，也不会产生事件冒泡。
+    *
+    *  3.事件切换
+    *   hover([over,]out) 一个模仿悬停事件（鼠标移动到一个对象上面及移出这个对象）的方法。这是一个自定义的方法，它为频繁使用的任务提供了一种“保持在其中”的状态
+    *   toggle([speed],[easing],[fn]) 用于绑定两个或多个事件处理器函数，以响应被选元素的轮流的 click 事件
+    *
+    *  4.事件
+    *   blur([[data],fn]) 当元素失去焦点时触发 blur 事件
+    *   change([[data],fn]) 当元素的值发生改变时，会发生 change 事件
+    *   click([[data],fn]) 触发每一个匹配元素的click事件
+    *   dblclick([[data],fn]) 当双击元素时，会发生 dblclick 事件
+    *   focus([[data],fn]) 当元素获得焦点时，触发 focus 事件
+    *   focusin([data],fn) 当元素获得焦点时，触发 focusin 事件
+    *   focusout([data],fn) 当元素失去焦点时触发 focusout 事件
+    *   keydown([[data],fn]) 当键盘或按钮被按下时，发生 keydown 事件
+    *   keypress([[data],fn]) 当键盘或按钮被按下时，发生 keypress 事件
+    *   keyup([[data],fn]) 当按钮被松开时，发生 keyup 事件。它发生在当前获得焦点的元素上
+    *   mousedown([[data],fn]) 当鼠标指针移动到元素上方，并按下鼠标按键时，会发生 mousedown 事件
+    *   mouseenter([[data],fn]) 当鼠标指针穿过元素时，会发生 mouseenter 事件。该事件大多数时候会与mouseleave 事件一起使用
+    *   mouseleave([[data],fn]) 当鼠标指针离开元素时，会发生 mouseleave 事件。该事件大多数时候会与mouseenter 事件一起使用
+    *   mousemove([[data],fn]) 当鼠标指针在指定的元素中移动时，就会发生 mousemove 事件
+    *   mouseout([[data],fn]) 当鼠标指针从元素上移开时，发生 mouseout 事件
+    *   mouseover([[data],fn]) 当鼠标指针位于元素上方时，会发生 mouseover 事件
+    *   mouseup([[data],fn]) 当在元素上放松鼠标按钮时，会发生 mouseup 事件
+    *   resize([[data],fn]) 当调整浏览器窗口的大小时，发生 resize 事件
+    *   scroll([[data],fn])  当用户滚动指定的元素时，会发生 scroll 事件
+    *   select([[data],fn])  当 textarea 或文本类型的 input 元素中的文本被选择时，会发生 select 事件
+    *   submit([[data],fn])  当提交表单时，会发生 submit 事件
+    *
+    * */
+    // ready(fn)
+    /*$(function($) {
+        // 可以在这里继续使用$作为别名...
+    });*/
+
+    /*$('p').on('click',function () {
+        alert($(this).text());
+    })*/
+    // $("p").off()
+    /*$('p').one('click',function () {
+        alert($(this).text());
+    })*/
+    /*$('p').bind('myEvent',function(event,message1,message2){
+        alert(message1 + ' ' + message2);
+    });*/
+    // $('p').trigger('myEvent',["Hello","Morgan"]);
+    // $('p').triggerHandler('myEvent',["Hello","Morgan"])
+
+    $('p').hover(function () {
+        $(this).addClass('hover')
+    })
+    // $("p").toggle("slow");
+
+    $('p').blur(function () {
+        $(this).addClass('hover')
+    })
+
+    /*$('p').click(function () {
+        $(this).hide('slow');
+    })*/
+    $('p').dblclick(function () {
+        $(this).hide('slow');
+    })
+
+    /*$("input[type='text']").change( function() {
+        // 这里可以写些验证代码
+    });*/
+    // $("input[type='text']").focus( function() {
+    //     this.blur();
+    // });
+
+    $("p").focusin(function() {
+        $(this).find("span").fadeIn(1000);
+    });
+
+    $("p").focusout(function() {
+        $(this).find("span").fadeOut(1000);
+    });
+    $("input").keyup(function(){
+        $("input").css("background-color","#D6D6FF");
+    });
+
+    $("p").mouseenter(function(){
+        $("p").css("background-color","yellow");
+    });
+
+    $("p").mouseleave(function(){
+        $("p").css("background-color","#E9E9E4");
+    });
+
+    $(document).mousemove(function(e){
+        $("span").text(e.pageX + ", " + e.pageY);
+    });
+
+    $(window).resize(function(){
+        alert("Stop it!");
+    });
+
+    $("div").scroll(function() {
+        $("span").text(x+=1);
+    });
+
+    $("form").submit( function () {
+        return false;
+    } );
+
+</script>
+
+</body>
+</html>
