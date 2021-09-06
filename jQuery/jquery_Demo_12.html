@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery 延迟对象</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <style>
+        body{
+            background-color:#baccd9
+        }
+
+        h1, h2, h3, h4, h5, h6, p, span,i {
+            color: #fffef8
+        }
+
+        header, div, footer, ul {
+            margin-top: 8px;
+            padding: 20px;
+            border: 2px solid #fffef9;
+            background-color: #1661ab;
+            box-shadow: 0 0 5px #5e616d;
+            color: #fffef8;
+        }
+
+        ul {
+            margin-top: 5px;
+            border-radius: 15px;
+            list-style: none;
+            color: #fffef8;
+            background-color: #806d9e
+        }
+
+        button{
+            border:2px solid #fffef8;
+            color:#fffef8;
+            background-color: #1781b5;
+            font-weight: bolder;
+            padding:10px;
+            border-radius: 25px;
+            box-shadow: 0 0 5px #5e7987;
+        }
+
+        .hover{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+
+<div></div>
+
+<script>
+
+    // jQuery 延迟对象
+    /*
+    * deferred.done(doneCallbacks[,doneCallbacks]) 当延迟成功时调用一个函数或者数组函数
+    * deferred.fail(failCallbacks[,failCallbacks])  当延迟失败时调用一个函数或者数组函数
+    * deferred.reject(args) 拒绝延迟对象，并根据给定的参数调用任何失败的回调函数
+    * deferred.rejectWith(context,[args]) 拒绝延迟的对象，并根据给定的上下文和参数调用任何失败的回调函数
+    * deferred.resolve(args) 解决递延对象，并根据给定的参数调用任何完成的回调函数
+    * deferred.resolveWith(context,[args]) 解决递延对象，并根据给定的上下文和参数调用任何完成的回调函数
+    * deferred.then(doneFilter [, failFilter ] [, progressFilter ]) 添加处理程序被调用时，递延对象得到解决或者拒绝
+    * deferred.promise([type],[target]) 返回一个 Promise 对象用来观察当某种类型的所有行动绑定到集合，排队与否还是已经完成
+    * deferred.always(alwaysCallbacks,[alwaysCallbacks]) 当递延对象是解决或拒绝时被调用添加处理程序
+    * deferred.notify(args) 调用一个给定args的递延对象上的进行中的回调 （progressCallbacks）
+    * deferred.notifyWith(context,[args]) 去掉字符串起始和结尾的空格
+    * deferred.progress(progressCallbacks) 当Deferred对象时生成进度通知时添加被访问处理程序
+    * deferred.state() 确定一个Deferred对象的当前状态
+    * */
+
+    let div = $('<div/>');
+    div.promise().done(function(arg1){
+        alert(this === div && arg1 === div);
+    })
+</script>
+
+
+
+</body>
+</html>

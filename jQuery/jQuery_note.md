@@ -93,3 +93,7 @@ jQuery核心对象
 ### jQuery 事件
 > [record => jQuery/jquery_Demo_11.html](jquery_Demo_11.html)  
 > 含：ready、click、keydown...
+
+### jQuery 延迟对象
+> [record => jQuery/jquery_Demo_12.html](jquery_Demo_12.html)  
+> 含：deferred.done、deferred.promise...
