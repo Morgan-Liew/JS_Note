@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery 筛选</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <style>
+        body {
+            background-color: #baccd9
+        }
+
+        h1, h2, h3, h4, h5, h6, p, span, i {
+            color: #fffef8
+        }
+
+        header, div, footer, ul {
+            margin-top: 8px;
+            padding: 20px;
+            border: 2px solid #fffef9;
+            background-color: #1661ab;
+            box-shadow: 0 0 5px #5e616d;
+            color: #fffef8;
+        }
+
+        ul {
+            margin-top: 5px;
+            border-radius: 15px;
+            list-style: none;
+            color: #fffef8;
+            background-color: #806d9e
+        }
+
+        button {
+            border: 2px solid #fffef8;
+            color: #fffef8;
+            background-color: #1781b5;
+            font-weight: bolder;
+            padding: 10px;
+            border-radius: 25px;
+            box-shadow: 0 0 5px #5e7987;
+        }
+
+        .hilight{
+            color:yellow;
+        }
+    </style>
+</head>
+<body>
+
+<span>ooo</span>
+<div>
+    <h3></h3>
+    <ul>
+        <li></li>
+        <li></li>
+        <li>
+            <ul>
+                <li>list item</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<p>AAA</p>
+<p class="aaa">aaa</p>
+<p>BBB</p>
+<p>bbb</p>
+<p id="ccc">ccc</p>
+
+<ul>
+    <li>DDD</li>
+    <li>ddd</li>
+    <li>EEE</li>
+    <li>eee</li>
+</ul>
+
+<p>Hello</p>
+
+<script>
+
+    // jQuery 筛选
+    /*
+    *  1.过滤
+    *  eq(index|-index) 获取当前链式操作中第N个jQuery对象，返回jQuery对象，当参数大于等于0时为正向选取，当参数为负数时为反向选取
+    *  first() 获取第一个元素
+    *  last()  获取最后个元素
+    *  hasClass(class) 检查当前的元素是否含有某个特定的类，如果有，则返回true
+    *  filter(expr|obj|ele|fn) 筛选出与指定表达式匹配的元素集合
+    *  is(expr|obj|ele|fn) 根据选择器、DOM元素或 jQuery 对象来检测匹配元素集合，如果其中至少有一个元素符合这个给定的表达式就返回true
+    *  map(callback) 将一组元素转换成其他数组（不论是否是元素数组）
+    *  has(expr|ele) 保留包含特定后代的元素，去掉那些不含有指定后代的元素
+    *  not(expr|ele|fn) 从匹配元素的集合中删除与指定表达式匹配的元素
+    *  slice(start, [end]) 选取一个匹配的子集
+    *
+    *  2.查找
+    *  children([expr]) 取得一个包含匹配的元素集合中每一个元素的所有子元素的元素集合
+    *  closest(expr|object|element) 从元素本身开始，逐级向上级元素匹配，并返回最先匹配的元素
+    *  find(expr|obj|ele) 搜索所有与指定表达式匹配的元素
+    *  next([expr]) 取得一个包含匹配的元素集合中每一个元素紧邻的后面同辈元素的元素集合
+    *  nextAll([expr]) 查找当前元素之后所有的同辈元素
+    *  nextUntil([exp|ele][,fil]) 查找当前元素之后所有的同辈元素，直到遇到匹配的那个元素为止
+    *  offsetParent() 返回第一个匹配元素用于定位的父节点
+    *  parent([expr]) 取得一个包含着所有匹配元素的唯一父元素的元素集合
+    *  parents([expr]) 取得一个包含着所有匹配元素的祖先元素的元素集合（不包含根元素）
+    *  parentsUntil([expr|element][,filter]) 查找当前元素的所有的父辈元素，直到遇到匹配的那个元素为止
+    *  prev([expr]) 取得一个包含匹配的元素集合中每一个元素紧邻的前一个同辈元素的元素集合
+    *  prevAll([expr]) 查找当前元素之前所有的同辈元素
+    *  prevUntil([exp|ele][,fil]) 查找当前元素之前所有的同辈元素，直到遇到匹配的那个元素为止
+    *  siblings([expr]) 取得一个包含匹配的元素集合中每一个元素的所有唯一同辈元素的元素集合
+    *
+    *  3.串连
+    *  add(expr|ele|html|obj[,con]) 把与表达式匹配的元素添加到jQuery对象中
+    *  addBack() 添加堆栈中元素集合到当前集合，一个选择性的过滤选择器
+    *  contents() 查找匹配元素内部所有的子节点（包括文本节点）
+    *  end()  将匹配的元素列表变为前一次的状态
+    *
+    * */
+    $('p').eq(3).appendTo('div h3');
+    // $('p').first().appendTo('div ul li');
+    // $('p').last().appendTo('div ul li');
+    // console.log($('p').hasClass('aaa'))
+    // $("p").filter(".selected")
+    // // $('li').has('ul').css('background-color','#ec4e8a');
+    // $('p').not($('#ccc')[0])
+    // $("p").slice(0, 3).wrapInner("<i></i>");
+    //
+    // $(document).bind('click',(e) => {
+    //     $(e.target).closest('li').toggleClass('hilight')
+    // })
+    // $("p").next()
+    // $("div:first").nextAll().addClass("after");
+    // $("#term-1").nextUntil(term3, "dd").css("color", "green");
+    //
+    // $("p").offsetParent().css("background-color","red");
+    // $("p").parent()
+    // $("span").parents()
+    // $('li.item-a').parentsUntil('.level-1').css('background-color', 'red');
+    //
+    // $("p").prev()
+    // $("div:last").prevAll().addClass("before");
+    // $('#term-2').prevUntil('dt').css('background-color', 'red');
+    // $("div").siblings()
+
+    $("p").find("i").end()
+    $("p").add("<span>mmm</span>")
+    $('li').nextAll().addBack().css('background-color', 'red');
+
+
+</script>
+
+</body>
+</html>

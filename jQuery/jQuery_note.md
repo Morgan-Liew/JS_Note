@@ -97,3 +97,11 @@ jQuery核心对象
 ### jQuery 延迟对象
 > [record => jQuery/jquery_Demo_12.html](jquery_Demo_12.html)  
 > 含：deferred.done、deferred.promise...
+
+### jQuery Ajax
+> [record => jQuery/jquery_Demo_13.html](jquery_Demo_13.html)  
+> 含：Ajax请求、Ajax事件...
+
+### jQuery 筛选
+> [record => jQuery/jquery_Demo_14.html](jquery_Demo_14.html)  
+> 含：过滤、查找、串连...

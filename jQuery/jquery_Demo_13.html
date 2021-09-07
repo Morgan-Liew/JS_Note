@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Ajax</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <style>
+        body {
+            background-color: #baccd9
+        }
+
+        h1, h2, h3, h4, h5, h6, p, span, i {
+            color: #fffef8
+        }
+
+        header, div, footer, ul {
+            margin-top: 8px;
+            padding: 20px;
+            border: 2px solid #fffef9;
+            background-color: #1661ab;
+            box-shadow: 0 0 5px #5e616d;
+            color: #fffef8;
+        }
+
+        ul {
+            margin-top: 5px;
+            border-radius: 15px;
+            list-style: none;
+            color: #fffef8;
+            background-color: #806d9e
+        }
+
+        button {
+            border: 2px solid #fffef8;
+            color: #fffef8;
+            background-color: #1781b5;
+            font-weight: bolder;
+            padding: 10px;
+            border-radius: 25px;
+            box-shadow: 0 0 5px #5e7987;
+        }
+    </style>
+</head>
+<body>
+
+<div id="msg"></div>
+
+<script>
+
+    // jQuery Ajax
+    /*
+    *  1.Ajax 请求
+    *
+    *  jQuery.ajax(url,[settings]) 通过 HTTP 请求加载远程数据 jQuery 底层 AJAX 实现
+    *  jQuery.get(url, [data], [callback], [type]) 通过远程 HTTP GET 请求载入信息
+    *  jQuery.getJSON(url, [data], [callback]) 通过 HTTP GET 请求载入 JSON 数据
+    *  jQuery.getScript(url, [callback])  通过 HTTP GET 请求载入并执行一个 JavaScript 文件
+    *  jQuery.post(url, [data], [callback], [type]) 通过远程 HTTP POST 请求载入信息
+    *
+    *  2.Ajax 事件
+    *  ajaxComplete(callback) AJAX 请求完成时执行函数
+    *  ajaxError(callback) AJAX 请求发生错误时执行函数
+    *  ajaxSend(callback) AJAX 请求发送前执行函数
+    *  ajaxStart(callback) AJAX 请求开始时执行函数
+    *  ajaxStop(callback) AJAX 请求结束时执行函数
+    *  ajaxSuccess(callback) AJAX 请求成功时执行函数
+    *
+    *  3.其它
+    *  load(url, [data], [callback]) 载入远程 HTML 文件代码并插入至 DOM 中
+    *  jQuery.ajaxPrefilter( [dataTypes] , handler(options, originalOptions, jqXHR) ) 在发送每个请求之前以及在 $.ajax() 处理它们之前处理自定义 Ajax 选项或修改现有选项
+    *  jQuery.ajaxSetup([options]) 设置全局 AJAX 默认选项
+    *  serialize()  序列表表格内容为字符串
+    *  serializeArray() 序列化表格元素 (类似 '.serialize()' 方法) 返回 JSON 数据结构数据
+    * */
+
+    $.ajax({
+        url: "test.html", context: document.body, success: function () {
+            $(this).addClass("done");
+        }
+    });
+    $.get("test.php", { name: "John", time: "2pm" } );
+
+
+
+    $.getScript("test.js", function(){
+        alert("Script loaded and executed.");
+    });
+
+    $.get("http://192.168.1.85:8090/api/signal/1", function(json){
+        $("#msg").ajaxSend(function(evt, request, settings){
+            $("#msg").append("<li>开始请求: " + settings.url + "</li>");
+        });
+        $("#msg").append("<h3>" + "JSON Data: " + json.currentTime + "</h3>");
+    });
+
+    $("#msg").ajaxComplete(function(event,request, settings){
+        $(this).append("<li>请求完成.</li>");
+    });
+</script>
+
+</body>
+</html>
